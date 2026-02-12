@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Noir Palette */
+    --background: 0 0% 1%;
+    --foreground: 0 0% 94%;
+
+    /* Safety Yellow Accent */
+    --primary: 58 100% 50%;
+    --primary-foreground: 0 0% 2%;
+
+    /* Surfaces */
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 94%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 94%;
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 94%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 58 100% 50%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 58 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    background-color: transparent !important;
+    min-height: 100vh;
+  }
+
+  /* Industrial Typography System */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-oswald), 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  body {
+    font-family: var(--font-manrope), 'Manrope', sans-serif;
+    font-weight: 300;
+    color: hsl(var(--foreground));
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: #FFF200;
+    color: #020202;
+  }
+}
+
+@layer utilities {
+  /* Vignette overlay - focuses attention to center */
+  .vignette {
+    position: relative;
+  }
+  .vignette::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 40%,
+      rgba(2, 2, 2, 0.5) 80%,
+      rgba(2, 2, 2, 0.85) 100%
+    );
+  }
+
+  /* Glass panel utility */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Yellow dot indicator */
+  .yellow-dot::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: #FFF200;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #020202;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFF200;
+}
