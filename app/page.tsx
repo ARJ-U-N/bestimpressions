@@ -4,14 +4,11 @@ import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProductCard } from '@/components/product-card'
-import { products, categories, getProductsByCategory } from '@/lib/products'
+import { products } from '@/lib/products'
 import { MagneticButton } from '@/components/magnetic-button'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowDown, MessageCircle } from 'lucide-react'
-
-// Hero words for kinetic typography
-const heroWords = ['BRAND.', 'YOUR.', 'IDENTITY.']
+import { ArrowDown, MessageCircle, Shield, Zap, Package } from 'lucide-react'
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -20,13 +17,10 @@ export default function Home() {
     offset: ['start start', 'end start'],
   })
 
-  // Parallax transforms for hero text spreading
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 0])
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, 80])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 80])
 
-  // Get featured products — one from each category
+  // Get featured products — one from each core category
   const featuredProducts = [
     products.find((p) => p.id === 'employee-id-cards'),
     products.find((p) => p.id === 'business-booster-cards'),
@@ -39,61 +33,51 @@ export default function Home() {
       <Navbar />
 
       {/* ═══════════════════════════════════════════════
-          KINETIC HERO SECTION
+          HERO SECTION
       ═══════════════════════════════════════════════ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-        <motion.div style={{ opacity }} className="text-center relative z-10">
-          {/* Stacked kinetic typography */}
-          <div className="space-y-0 leading-none">
-            {heroWords.map((word, i) => (
-              <motion.div
-                key={word}
-                initial={{ opacity: 0, y: 60, rotateX: 40 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{
-                  delay: 0.4 + i * 0.15,
-                  duration: 0.8,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                style={{ y: i === 0 ? y1 : i === 1 ? y2 : y3 }}
-              >
-                <h1
-                  className={`font-oswald uppercase tracking-tightest leading-[0.85] ${i === 2
-                    ? 'text-brand-yellow'
-                    : 'text-white'
-                    }`}
-                  style={{ fontSize: 'clamp(3rem, 12vw, 14rem)' }}
-                >
-                  {word}
-                </h1>
-              </motion.div>
-            ))}
-          </div>
+        <motion.div style={{ opacity, y: heroY }} className="text-center relative z-10 max-w-5xl mx-auto">
+          {/* Main Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1
+              className="font-heading uppercase tracking-tightest leading-[0.9] text-white"
+              style={{ fontSize: 'clamp(2rem, 8vw, 7rem)' }}
+            >
+              KERALA&apos;S FASTEST PREMIUM{' '}
+              <span className="text-brand-yellow">ID CARD</span> &{' '}
+              <span className="text-brand-yellow">BRANDING</span> SOLUTIONS
+            </h1>
+          </motion.div>
 
-          {/* Subtitle */}
+          {/* Sub-headline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            className="mt-8 text-white/40 font-manrope font-light text-sm sm:text-base max-w-md mx-auto tracking-wide"
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-8 text-white/50 font-sans font-light text-base sm:text-lg max-w-2xl mx-auto tracking-wide leading-relaxed"
           >
-            Premium printing solutions for corporate professionals and creative minds.
+            We deliver UV printing + engraving under one roof.{' '}
+            <span className="text-white/70 font-medium">Zero Hassle. 100% On-Time.</span>
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.6 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <MagneticButton
               as="a"
               href="#collections"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-black font-manrope font-semibold text-sm rounded-full hover:bg-brand-yellow transition-colors duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-brand-yellow text-black font-heading font-bold text-sm sm:text-base uppercase tracking-wider rounded-full hover:bg-yellow-300 transition-colors duration-300 cursor-pointer"
             >
-              Explore Collections
-              <ArrowDown size={16} />
+              Explore Products
+              <ArrowDown size={18} />
             </MagneticButton>
 
             <MagneticButton
@@ -101,7 +85,7 @@ export default function Home() {
               href="https://wa.me/919946666255"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 border border-[#25D366]/40 text-white font-manrope font-light text-sm rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all duration-300 group cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-[#25D366]/40 text-white font-sans font-light text-sm rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all duration-300 group cursor-pointer"
             >
               <MessageCircle size={16} className="group-hover:animate-spin-once" />
               Chat on WhatsApp
@@ -127,6 +111,79 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════
+          THE BEST IMPRESSIONS ADVANTAGE
+      ═══════════════════════════════════════════════ */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-brand-yellow" />
+              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
+                Why Us
+              </span>
+            </div>
+            <h2
+              className="font-heading text-white uppercase tracking-tight leading-none"
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+            >
+              The Best Impressions <span className="text-brand-yellow">Advantage</span>
+            </h2>
+          </motion.div>
+
+          {/* 3-Column USP Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Shield,
+                title: 'Premium Quality',
+                description: 'Accurate colors and premium finishing guaranteed.',
+              },
+              {
+                icon: Zap,
+                title: 'Fastest Turnaround',
+                description: 'We solve the biggest market issue: unreliable vendors. We deliver on time, every time.',
+              },
+              {
+                icon: Package,
+                title: 'One-Stop Partner',
+                description: 'Design → Print → Engraving → Sorting → Delivery. No coordination with multiple vendors needed.',
+              },
+            ].map((usp, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-yellow/30 transition-all duration-700"
+              >
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center mb-6 group-hover:bg-brand-yellow/20 transition-colors duration-500">
+                  <usp.icon size={24} className="text-brand-yellow" />
+                </div>
+                <h3 className="font-heading text-xl text-white uppercase tracking-tight mb-3">
+                  {usp.title}
+                </h3>
+                <p className="text-sm text-white/40 font-sans font-light leading-relaxed">
+                  {usp.description}
+                </p>
+
+                {/* Hover accent line */}
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-brand-yellow/0 group-hover:bg-brand-yellow/40 transition-all duration-700 rounded-full" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
           BENTO GRID — COLLECTIONS
       ═══════════════════════════════════════════════ */}
       <section id="collections" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -141,47 +198,47 @@ export default function Home() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[1px] bg-brand-yellow" />
-              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-manrope">
+              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
                 Collections
               </span>
             </div>
             <h2
-              className="font-oswald text-white uppercase tracking-tight leading-none"
+              className="font-heading text-white uppercase tracking-tight leading-none"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              Our Collections
+              Our Core Offerings
             </h2>
           </motion.div>
 
-          {/* Bento Grid */}
+          {/* Bento Grid — Updated to client's 4 core categories */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px] sm:auto-rows-[220px]">
             {[
               {
                 title: 'Identity Cards',
-                description: 'Professional ID solutions',
-                link: '/product/employee-id-cards',
+                description: 'Employee, Student & RFID',
+                link: '/category/id-cards',
                 image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=600&fit=crop',
                 span: 'col-span-2 row-span-2',
               },
               {
-                title: 'PVC Cards',
-                description: 'Business & membership',
-                link: '/product/business-booster-cards',
+                title: 'Metal NFC Cards',
+                description: 'Premium Business Cards',
+                link: '/category/pvc-cards',
                 image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
                 span: 'col-span-1 row-span-1',
               },
               {
-                title: 'Mug Printing',
-                description: 'Custom printed mugs',
-                link: '/product/magic-mugs',
+                title: 'Merchandise',
+                description: 'Mugs, Bottles & T-Shirts',
+                link: '/category/mugs',
                 image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=400&fit=crop',
                 span: 'col-span-1 row-span-1',
               },
               {
-                title: 'Merchandise',
-                description: 'T-shirts, badges & more',
-                link: '/product/t-shirt-jerseys',
-                image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=400&fit=crop',
+                title: 'Corporate Gifting',
+                description: 'Welcome Kits & Engraved Pens',
+                link: '/category/merch',
+                image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
                 span: 'col-span-2 row-span-1',
               },
             ].map((category, i) => (
@@ -209,11 +266,11 @@ export default function Home() {
                     <div className="relative z-10 h-full flex flex-col justify-end p-5 sm:p-6">
                       <div className="flex items-center gap-2 mb-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
-                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-manrope">
+                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-sans">
                           {category.description}
                         </span>
                       </div>
-                      <h3 className="font-oswald text-xl sm:text-2xl text-white uppercase tracking-tight group-hover:text-brand-yellow transition-colors duration-500">
+                      <h3 className="font-heading text-xl sm:text-2xl text-white uppercase tracking-tight group-hover:text-brand-yellow transition-colors duration-500">
                         {category.title}
                       </h3>
                     </div>
@@ -240,12 +297,12 @@ export default function Home() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[1px] bg-brand-yellow" />
-              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-manrope">
+              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
                 Featured
               </span>
             </div>
             <h2
-              className="font-oswald text-white uppercase tracking-tight leading-none"
+              className="font-heading text-white uppercase tracking-tight leading-none"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
               Handpicked For You
@@ -276,95 +333,13 @@ export default function Home() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/40 hover:text-brand-yellow font-manrope transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/40 hover:text-brand-yellow font-sans transition-colors duration-300"
             >
               <span className="w-6 h-[1px] bg-current" />
               View All Products
               <span className="w-6 h-[1px] bg-current" />
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════
-          WHY CHOOSE US
-      ═══════════════════════════════════════════════ */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[1px] bg-brand-yellow" />
-              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-manrope">
-                Why Us
-              </span>
-            </div>
-            <h2
-              className="font-oswald text-white uppercase tracking-tight leading-none"
-              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
-            >
-              Why Best Impressions?
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                num: '01',
-                title: 'Premium Quality',
-                description: 'Using the finest materials and latest printing technology for superior results.',
-              },
-              {
-                num: '02',
-                title: 'Custom Solutions',
-                description: 'Fully customizable designs tailored to your brand and requirements.',
-              },
-              {
-                num: '03',
-                title: 'Quick Turnaround',
-                description: 'Fast delivery without compromising on quality or attention to detail.',
-              },
-              {
-                num: '04',
-                title: 'Expert Team',
-                description: 'Experienced professionals ready to guide you through every step.',
-              },
-              {
-                num: '05',
-                title: 'Competitive Pricing',
-                description: 'Best prices in the market with transparent and flexible payment options.',
-              },
-              {
-                num: '06',
-                title: 'Concierge Support',
-                description: 'Dedicated WhatsApp support for instant assistance and personalized quotes.',
-              },
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ delay: i * 0.05, duration: 0.5 }}
-                className="group p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500"
-              >
-                <span className="font-oswald text-3xl text-white/[0.06] group-hover:text-brand-yellow/20 transition-colors duration-500">
-                  {feature.num}
-                </span>
-                <h3 className="font-oswald text-lg text-white uppercase tracking-tight mt-4 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-white/40 font-manrope font-light leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -386,12 +361,12 @@ export default function Home() {
 
             <div className="relative glass-panel rounded-3xl p-10 sm:p-16 text-center border-none">
               <h2
-                className="font-oswald text-white uppercase tracking-tight leading-none mb-4"
+                className="font-heading text-white uppercase tracking-tight leading-none mb-4"
                 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
               >
                 Ready to Make a <span className="text-brand-yellow">Great Impression</span>?
               </h2>
-              <p className="text-white/40 font-manrope font-light text-sm sm:text-base max-w-lg mx-auto mb-10">
+              <p className="text-white/40 font-sans font-light text-sm sm:text-base max-w-lg mx-auto mb-10">
                 Connect with us on WhatsApp to discuss your requirements and get a personalized quote within minutes.
               </p>
 
@@ -400,7 +375,7 @@ export default function Home() {
                 href="https://wa.me/919946666255"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-4 border border-[#25D366]/50 text-white font-manrope font-semibold text-base rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all duration-300 group cursor-pointer"
+                className="inline-flex items-center gap-3 px-10 py-4 border border-[#25D366]/50 text-white font-sans font-semibold text-base rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all duration-300 group cursor-pointer"
                 strength={15}
               >
                 <MessageCircle size={20} className="group-hover:animate-spin-once" />

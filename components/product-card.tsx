@@ -36,7 +36,7 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
 
           {/* Category label */}
           <div className="absolute top-4 left-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-white/70 font-manrope">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-white/70 font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
               {product.categoryLabel}
             </span>
@@ -47,21 +47,21 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
       {/* Content */}
       <div className="p-5 flex flex-col gap-3">
         <Link href={`/product/${product.id}`} className="block">
-          <h3 className="font-oswald text-lg uppercase tracking-tight text-brand-yellow text-center group-hover:text-white transition-colors duration-500">
+          <h3 className="font-heading text-lg uppercase tracking-tight text-brand-yellow text-center group-hover:text-white transition-colors duration-500">
             {product.name}
           </h3>
         </Link>
 
-        <p className="text-xs text-white/40 font-manrope font-light line-clamp-2 leading-relaxed text-center">
+        <p className="text-xs text-white/40 font-sans font-light line-clamp-2 leading-relaxed text-center">
           {product.description}
         </p>
 
         {/* Price */}
         <div className="text-center py-1">
-          <span className="font-oswald text-xl text-white">
+          <span className="font-heading text-xl text-white">
             ₹{product.price}
           </span>
-          <span className="text-xs text-white/30 font-manrope font-light ml-1">/unit</span>
+          <span className="text-xs text-white/30 font-sans font-light ml-1">/unit</span>
         </div>
 
         {/* Action Buttons */}
@@ -69,7 +69,7 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
           <div className="flex gap-2 pt-2 border-t border-white/[0.06]">
             <Link
               href={`/product/${product.id}`}
-              className="flex-1 py-2.5 px-4 bg-brand-yellow text-black font-manrope font-semibold text-xs text-center rounded-lg hover:bg-yellow-300 transition-colors duration-300 uppercase tracking-wider"
+              className="flex-1 py-2.5 px-4 bg-brand-yellow text-black font-sans font-semibold text-xs text-center rounded-lg hover:bg-yellow-300 transition-colors duration-300 uppercase tracking-wider"
             >
               Read More
             </Link>
@@ -77,7 +77,7 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-4 bg-[#25D366] text-white font-manrope font-semibold text-xs rounded-lg hover:bg-[#20bd5a] transition-colors duration-300 uppercase tracking-wider group/wa"
+              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-4 bg-[#25D366] text-white font-sans font-semibold text-xs rounded-lg hover:bg-[#20bd5a] transition-colors duration-300 uppercase tracking-wider group/wa"
             >
               <MessageCircle size={12} className="group-hover/wa:animate-spin-once" />
               WhatsApp
@@ -87,7 +87,7 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
           <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
             <Link
               href={`/product/${product.id}`}
-              className="text-[10px] uppercase tracking-widest text-white/30 font-manrope group-hover:text-brand-yellow/60 transition-colors"
+              className="text-[10px] uppercase tracking-widest text-white/30 font-sans group-hover:text-brand-yellow/60 transition-colors"
             >
               Explore →
             </Link>
@@ -95,7 +95,7 @@ export function ProductCard({ product, className = '', showActions = false }: Pr
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-[#25D366]/50 font-manrope hover:text-[#25D366] transition-colors"
+              className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-[#25D366]/50 font-sans hover:text-[#25D366] transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               <MessageCircle size={10} />

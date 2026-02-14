@@ -63,21 +63,21 @@ export function ConciergeModal({
                             <div className="mb-8">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="w-2 h-2 rounded-full bg-brand-yellow" />
-                                    <span className="text-xs uppercase tracking-widest text-brand-gray font-manrope">
+                                    <span className="text-xs uppercase tracking-widest text-brand-gray font-sans">
                                         Concierge Request
                                     </span>
                                 </div>
-                                <h3 className="font-oswald text-2xl text-white uppercase tracking-tight">
+                                <h3 className="font-heading text-2xl text-white uppercase tracking-tight">
                                     {productName}
                                 </h3>
-                                <p className="text-brand-gray text-sm mt-1 font-manrope">
+                                <p className="text-brand-gray text-sm mt-1 font-sans">
                                     Starting from ₹{productPrice}/unit
                                 </p>
                             </div>
 
                             {/* Notes */}
                             <div className="mb-8">
-                                <label className="block text-xs uppercase tracking-widest text-brand-gray mb-3 font-manrope">
+                                <label className="block text-xs uppercase tracking-widest text-brand-gray mb-3 font-sans">
                                     Customization Notes{' '}
                                     <span className="text-white/20">(optional)</span>
                                 </label>
@@ -85,14 +85,14 @@ export function ConciergeModal({
                                     value={notes}
                                     onChange={(e) => setNotes(e.target.value)}
                                     placeholder="Logo files, specific colors, quantity breakdown, deadline..."
-                                    className="w-full h-28 bg-white/[0.03] border border-white/10 rounded-xl p-4 text-white placeholder:text-white/20 font-manrope font-light text-sm resize-none focus:outline-none focus:border-brand-yellow/30 transition-colors"
+                                    className="w-full h-28 bg-white/[0.03] border border-white/10 rounded-xl p-4 text-white placeholder:text-white/20 font-sans font-light text-sm resize-none focus:outline-none focus:border-brand-yellow/30 transition-colors"
                                 />
                             </div>
 
                             {/* Send Button */}
                             <MagneticButton
                                 onClick={handleSendToWhatsApp}
-                                className="w-full group flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-black font-manrope font-semibold text-base py-4 rounded-xl transition-all duration-300 cursor-pointer"
+                                className="w-full group flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-black font-sans font-semibold text-base py-4 rounded-xl transition-all duration-300 cursor-pointer"
                                 strength={10}
                             >
                                 <MessageCircle
@@ -103,7 +103,7 @@ export function ConciergeModal({
                                 <Send size={16} className="opacity-60" />
                             </MagneticButton>
 
-                            <p className="text-center text-white/20 text-xs mt-4 font-manrope">
+                            <p className="text-center text-white/20 text-xs mt-4 font-sans">
                                 We typically respond within 5 minutes during business hours
                             </p>
                         </div>

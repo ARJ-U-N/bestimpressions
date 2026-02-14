@@ -41,17 +41,17 @@ export default function ContactPage() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[1px] bg-brand-yellow" />
-              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-manrope">
+              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
                 Contact
               </span>
             </div>
             <h1
-              className="font-oswald text-white uppercase tracking-tight leading-none mb-4"
+              className="font-heading text-white uppercase tracking-tight leading-none mb-4"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
             >
               Get in <span className="text-brand-yellow">Touch</span>
             </h1>
-            <p className="text-white/40 font-manrope font-light text-sm sm:text-base max-w-lg">
+            <p className="text-white/40 font-sans font-light text-sm sm:text-base max-w-lg">
               Have questions? We'd love to hear from you. Reach out to us anytime.
             </p>
           </motion.div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-8"
             >
-              <h2 className="font-oswald text-xl text-white uppercase tracking-tight">
+              <h2 className="font-heading text-xl text-white uppercase tracking-tight">
                 Send us a Message
               </h2>
 
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   { label: 'Phone', type: 'tel', key: 'phone', placeholder: '+91 99466 66255' },
                 ].map((field) => (
                   <div key={field.key} className="space-y-2">
-                    <label className="block text-xs uppercase tracking-widest text-brand-gray font-manrope">
+                    <label className="block text-xs uppercase tracking-widest text-brand-gray font-sans">
                       {field.label}
                     </label>
                     <input
@@ -86,13 +86,13 @@ export default function ContactPage() {
                         setFormData({ ...formData, [field.key]: e.target.value })
                       }
                       required={field.key !== 'phone'}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 font-manrope font-light text-sm focus:outline-none focus:border-brand-yellow/30 transition-colors"
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 font-sans font-light text-sm focus:outline-none focus:border-brand-yellow/30 transition-colors"
                     />
                   </div>
                 ))}
 
                 <div className="space-y-2">
-                  <label className="block text-xs uppercase tracking-widest text-brand-gray font-manrope">
+                  <label className="block text-xs uppercase tracking-widest text-brand-gray font-sans">
                     Message
                   </label>
                   <textarea
@@ -102,13 +102,13 @@ export default function ContactPage() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     required
-                    className="w-full h-32 bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 font-manrope font-light text-sm resize-none focus:outline-none focus:border-brand-yellow/30 transition-colors"
+                    className="w-full h-32 bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 font-sans font-light text-sm resize-none focus:outline-none focus:border-brand-yellow/30 transition-colors"
                   />
                 </div>
 
                 <MagneticButton
                   onClick={() => { }}
-                  className="w-full py-3.5 bg-white text-black font-manrope font-semibold text-sm rounded-full hover:bg-brand-yellow transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3.5 bg-white text-black font-sans font-semibold text-sm rounded-full hover:bg-brand-yellow transition-colors duration-300 cursor-pointer"
                   strength={10}
                 >
                   {submitted ? '✓ Message Sent!' : 'Send Message'}
@@ -118,7 +118,7 @@ export default function ContactPage() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-sm font-manrope"
+                    className="p-4 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-sm font-sans"
                   >
                     Thank you for your message! We'll get back to you soon.
                   </motion.div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-8"
             >
-              <h2 className="font-oswald text-xl text-white uppercase tracking-tight">
+              <h2 className="font-heading text-xl text-white uppercase tracking-tight">
                 Contact Information
               </h2>
 
@@ -183,7 +183,7 @@ export default function ContactPage() {
                         <item.icon size={18} />
                       </div>
                       <div>
-                        <h3 className="font-oswald text-sm text-white uppercase tracking-wider mb-1">
+                        <h3 className="font-heading text-sm text-white uppercase tracking-wider mb-1">
                           {item.title}
                         </h3>
                         {item.href ? (
@@ -191,17 +191,17 @@ export default function ContactPage() {
                             href={item.href}
                             target={item.external ? '_blank' : undefined}
                             rel={item.external ? 'noopener noreferrer' : undefined}
-                            className="text-white/60 hover:text-brand-yellow text-sm font-manrope font-light transition-colors"
+                            className="text-white/60 hover:text-brand-yellow text-sm font-sans font-light transition-colors"
                           >
                             {item.content}
                           </a>
                         ) : (
-                          <p className="text-white/60 text-sm font-manrope font-light whitespace-pre-line">
+                          <p className="text-white/60 text-sm font-sans font-light whitespace-pre-line">
                             {item.content}
                           </p>
                         )}
                         {item.sub && (
-                          <p className="text-white/20 text-xs font-manrope mt-1">{item.sub}</p>
+                          <p className="text-white/20 text-xs font-sans mt-1">{item.sub}</p>
                         )}
                       </div>
                     </div>
@@ -213,8 +213,8 @@ export default function ContactPage() {
               <div className="glass-panel rounded-2xl overflow-hidden h-64 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin size={24} className="mx-auto mb-2 text-brand-yellow/30" />
-                  <p className="text-white/20 text-xs font-manrope">Google Maps</p>
-                  <p className="text-white/10 text-[10px] font-manrope mt-1">
+                  <p className="text-white/20 text-xs font-sans">Google Maps</p>
+                  <p className="text-white/10 text-[10px] font-sans mt-1">
                     Replace with actual embed
                   </p>
                 </div>
@@ -233,12 +233,12 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-[1px] bg-brand-yellow" />
-                <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-manrope">
+                <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
                   FAQ
                 </span>
               </div>
               <h2
-                className="font-oswald text-white uppercase tracking-tight leading-none"
+                className="font-heading text-white uppercase tracking-tight leading-none"
                 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
               >
                 Frequently Asked Questions
@@ -272,10 +272,10 @@ export default function ContactPage() {
                   transition={{ delay: i * 0.05 }}
                   className="glass-panel rounded-2xl p-6 hover:border-white/10 transition-all duration-300"
                 >
-                  <h3 className="font-oswald text-sm text-white uppercase tracking-wider mb-3">
+                  <h3 className="font-heading text-sm text-white uppercase tracking-wider mb-3">
                     {faq.q}
                   </h3>
-                  <p className="text-white/40 text-sm font-manrope font-light leading-relaxed">
+                  <p className="text-white/40 text-sm font-sans font-light leading-relaxed">
                     {faq.a}
                   </p>
                 </motion.div>

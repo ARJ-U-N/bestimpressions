@@ -16,7 +16,7 @@ const config: Config = {
           black: '#050505',
           void: '#020202',
           surface: '#0F0F0F',
-          yellow: '#FFF200',
+          yellow: '#FBFF00',
           gray: '#888888',
           smoke: '#F0F0F0',
         },
@@ -73,8 +73,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        oswald: ['var(--font-oswald)', 'sans-serif'],
-        manrope: ['var(--font-manrope)', 'sans-serif'],
+        heading: ['var(--font-heading)', 'League Spartan', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Montserrat', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.06em',

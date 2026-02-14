@@ -1,31 +1,31 @@
 import type { Metadata, Viewport } from 'next'
-import { Oswald, Manrope } from 'next/font/google'
+import { League_Spartan, Montserrat } from 'next/font/google'
 import './globals.css'
 import { InteractiveDotGrid } from '@/components/interactive-dot-grid'
 
-// Industrial Luxury Typography
-const oswald = Oswald({
+// Brand Typography — League Spartan (Headings) + Montserrat (Body)
+const leagueSpartan = League_Spartan({
   subsets: ['latin'],
-  variable: '--font-oswald',
+  variable: '--font-heading',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-const manrope = Manrope({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-sans',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
-  title: 'Best Impressions — Premium Printing & Brand Identity',
+  title: 'Best Impressions — Kerala\'s Fastest Premium ID Card & Branding Solutions',
   description:
-    'Ultra-premium printing solutions for corporate identity, custom merchandise, and luxury brand materials. ID cards, PVC cards, mugs, and more.',
+    'Premium UV printing, engraving, ID cards, metal NFC cards, merchandise, and corporate gifting. Zero hassle. 100% on-time delivery across Kerala.',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#020202',
+  themeColor: '#050505',
   width: 'device-width',
   initialScale: 1,
 }
@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${oswald.variable} ${manrope.variable}`}>
-      <body className="font-manrope antialiased">
+    <html lang="en" className={`dark ${leagueSpartan.variable} ${montserrat.variable}`}>
+      <body className="font-sans antialiased">
         {/* Background Layer — Interactive Dot Grid */}
         <div
           style={{

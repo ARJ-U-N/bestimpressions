@@ -17,18 +17,18 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-5">
               <Image src="/cropped-BEST-IMPRESSIONS-LOGO.png" alt="Best Impressions" width={36} height={36} className="rounded-lg" />
-              <span className="font-oswald text-base text-white uppercase tracking-tight">
+              <span className="font-heading text-base text-white uppercase tracking-tight">
                 BEST IMPRESSIONS
               </span>
             </div>
-            <p className="text-white/30 text-sm font-manrope font-light leading-relaxed">
+            <p className="text-white/30 text-sm font-sans font-light leading-relaxed">
               Premium printing and merchandise solutions for your brand identity.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="flex items-center gap-2 font-oswald text-sm text-white uppercase tracking-wider mb-5">
+            <h3 className="flex items-center gap-2 font-heading text-sm text-white uppercase tracking-wider mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
               Quick Links
             </h3>
@@ -41,7 +41,7 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href={link.href}
-                    className="text-white/30 hover:text-brand-yellow text-sm font-manrope font-light transition-colors duration-300"
+                    className="text-white/30 hover:text-brand-yellow text-sm font-sans font-light transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
@@ -52,7 +52,7 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="flex items-center gap-2 font-oswald text-sm text-white uppercase tracking-wider mb-5">
+            <h3 className="flex items-center gap-2 font-heading text-sm text-white uppercase tracking-wider mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
               Products
             </h3>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href={link.href}
-                    className="text-white/30 hover:text-brand-yellow text-sm font-manrope font-light transition-colors duration-300"
+                    className="text-white/30 hover:text-brand-yellow text-sm font-sans font-light transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
@@ -77,14 +77,14 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="flex items-center gap-2 font-oswald text-sm text-white uppercase tracking-wider mb-5">
+            <h3 className="flex items-center gap-2 font-heading text-sm text-white uppercase tracking-wider mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
               Contact
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={14} className="text-brand-yellow flex-shrink-0 mt-0.5" />
-                <span className="text-white/30 text-sm font-manrope font-light">
+                <span className="text-white/30 text-sm font-sans font-light">
                   Kochi, Kerala, India
                 </span>
               </li>
@@ -92,7 +92,7 @@ export function Footer() {
                 <Phone size={14} className="text-brand-yellow flex-shrink-0" />
                 <a
                   href="tel:+919946666255"
-                  className="text-white/30 hover:text-brand-yellow text-sm font-manrope font-light transition-colors"
+                  className="text-white/30 hover:text-brand-yellow text-sm font-sans font-light transition-colors"
                 >
                   +91 99466 66255
                 </a>
@@ -101,7 +101,7 @@ export function Footer() {
                 <Mail size={14} className="text-brand-yellow flex-shrink-0" />
                 <a
                   href="mailto:info@bestimpressions.com"
-                  className="text-white/30 hover:text-brand-yellow text-sm font-manrope font-light transition-colors"
+                  className="text-white/30 hover:text-brand-yellow text-sm font-sans font-light transition-colors"
                 >
                   info@bestimpressions.com
                 </a>
@@ -115,7 +115,7 @@ export function Footer() {
 
         {/* Bottom footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/20 text-xs font-manrope font-light tracking-wider">
+          <p className="text-white/20 text-xs font-sans font-light tracking-wider">
             &copy; {currentYear} Best Impressions. All rights reserved.
           </p>
 

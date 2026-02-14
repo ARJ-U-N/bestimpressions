@@ -39,49 +39,55 @@
     @apply border-border;
   }
 
-  html, body {
+  html,
+  body {
     background-color: transparent !important;
     min-height: 100vh;
   }
 
-  /* Industrial Typography System */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-oswald), 'Oswald', sans-serif;
+  /* Brand Typography System */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), 'League Spartan', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: -0.03em;
   }
 
   body {
-    font-family: var(--font-manrope), 'Manrope', sans-serif;
+    font-family: var(--font-sans), 'Montserrat', sans-serif;
     font-weight: 300;
     color: hsl(var(--foreground));
   }
 
   /* Selection */
   ::selection {
-    background-color: #FFF200;
+    background-color: #FBFF00;
     color: #020202;
   }
 }
 
 @layer utilities {
+
   /* Vignette overlay - focuses attention to center */
   .vignette {
     position: relative;
   }
+
   .vignette::after {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    background: radial-gradient(
-      ellipse at center,
-      transparent 40%,
-      rgba(2, 2, 2, 0.5) 80%,
-      rgba(2, 2, 2, 0.85) 100%
-    );
+    background: radial-gradient(ellipse at center,
+        transparent 40%,
+        rgba(2, 2, 2, 0.5) 80%,
+        rgba(2, 2, 2, 0.85) 100%);
   }
 
   /* Glass panel utility */
@@ -99,7 +105,7 @@
     width: 6px;
     height: 6px;
     border-radius: 9999px;
-    background-color: #FFF200;
+    background-color: #FBFF00;
     margin-right: 8px;
     vertical-align: middle;
   }
@@ -109,13 +115,16 @@
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: #020202;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFF200;
+  background: #FBFF00;
 }
