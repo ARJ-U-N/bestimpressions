@@ -44,12 +44,11 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1
-              className="font-heading uppercase tracking-tightest leading-[0.9] text-white"
-              style={{ fontSize: 'clamp(2rem, 8vw, 7rem)' }}
+              className="font-heading uppercase tracking-tightest leading-none text-white text-[2.5rem] md:text-[clamp(3rem,8vw,7rem)]"
             >
-              KERALA&apos;S FASTEST PREMIUM{' '}
-              <span className="text-brand-yellow">ID CARD</span> &{' '}
-              <span className="text-brand-yellow">BRANDING</span> SOLUTIONS
+              <span className="block md:inline">KERALA&apos;S FASTEST PREMIUM</span>{' '}
+              <span className="block md:inline"><span className="text-brand-yellow">ID CARD</span> &amp; <span className="text-brand-yellow">BRANDING</span></span>{' '}
+              <span className="block md:inline">SOLUTIONS</span>
             </h1>
           </motion.div>
 

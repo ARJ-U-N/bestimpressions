@@ -73,8 +73,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ['var(--font-heading)', 'League Spartan', 'sans-serif'],
-        sans: ['var(--font-sans)', 'Montserrat', 'sans-serif'],
+        heading: ['var(--font-heading)', 'DESIGNER', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Helvetica', 'Arial', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.06em',

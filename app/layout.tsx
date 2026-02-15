@@ -1,21 +1,23 @@
 import type { Metadata, Viewport } from 'next'
-import { League_Spartan, Montserrat } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { InteractiveDotGrid } from '@/components/interactive-dot-grid'
 
-// Brand Typography — League Spartan (Headings) + Montserrat (Body)
-const leagueSpartan = League_Spartan({
-  subsets: ['latin'],
+// Brand Typography — DESIGNER (Headings) + Helvetica (Body)
+const designerFont = localFont({
+  src: '../public/fonts/DESIGNER.otf',
   variable: '--font-heading',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
+const helvetica = localFont({
+  src: [
+    { path: '../public/fonts/Helvetica-Light.ttf', weight: '300', style: 'normal' },
+    { path: '../public/fonts/Helvetica.ttf', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Helvetica-Bold.ttf', weight: '700', style: 'normal' },
+  ],
   variable: '--font-sans',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -36,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${leagueSpartan.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`dark ${designerFont.variable} ${helvetica.variable}`}>
       <body className="font-sans antialiased">
         {/* Background Layer — Interactive Dot Grid */}
         <div
