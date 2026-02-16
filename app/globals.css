@@ -55,7 +55,9 @@
     font-family: var(--font-heading), 'DESIGNER', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    overflow-wrap: break-word;
   }
 
   body {

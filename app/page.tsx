@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1
-              className="font-heading uppercase tracking-tightest leading-none text-white text-[2.5rem] md:text-[clamp(3rem,8vw,7rem)]"
+              className="font-heading uppercase tracking-wide leading-tight text-white text-[2.5rem] md:text-[clamp(3rem,8vw,7rem)]"
             >
               <span className="block md:inline">KERALA&apos;S FASTEST PREMIUM</span>{' '}
               <span className="block md:inline"><span className="text-brand-yellow">ID CARD</span> &amp; <span className="text-brand-yellow">BRANDING</span></span>{' '}
@@ -129,7 +129,7 @@ export default function Home() {
               </span>
             </div>
             <h2
-              className="font-heading text-white uppercase tracking-tight leading-none"
+              className="font-heading text-white uppercase tracking-wide leading-tight"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
               The Best Impressions <span className="text-brand-yellow">Advantage</span>
@@ -167,7 +167,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center mb-6 group-hover:bg-brand-yellow/20 transition-colors duration-500">
                   <usp.icon size={24} className="text-brand-yellow" />
                 </div>
-                <h3 className="font-heading text-xl text-white uppercase tracking-tight mb-3">
+                <h3 className="font-heading text-xl text-white uppercase tracking-wide mb-3">
                   {usp.title}
                 </h3>
                 <p className="text-sm text-white/40 font-sans font-light leading-relaxed">
@@ -202,7 +202,7 @@ export default function Home() {
               </span>
             </div>
             <h2
-              className="font-heading text-white uppercase tracking-tight leading-none"
+              className="font-heading text-white uppercase tracking-wide leading-tight"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
               Our Core Offerings
@@ -269,7 +269,7 @@ export default function Home() {
                           {category.description}
                         </span>
                       </div>
-                      <h3 className="font-heading text-xl sm:text-2xl text-white uppercase tracking-tight group-hover:text-brand-yellow transition-colors duration-500">
+                      <h3 className="font-heading text-xl sm:text-2xl text-white uppercase tracking-wide group-hover:text-brand-yellow transition-colors duration-500">
                         {category.title}
                       </h3>
                     </div>
@@ -301,7 +301,7 @@ export default function Home() {
               </span>
             </div>
             <h2
-              className="font-heading text-white uppercase tracking-tight leading-none"
+              className="font-heading text-white uppercase tracking-wide leading-tight"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
               Handpicked For You
@@ -360,7 +360,7 @@ export default function Home() {
 
             <div className="relative glass-panel rounded-3xl p-10 sm:p-16 text-center border-none">
               <h2
-                className="font-heading text-white uppercase tracking-tight leading-none mb-4"
+                className="font-heading text-white uppercase tracking-wide leading-tight mb-4"
                 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
               >
                 Ready to Make a <span className="text-brand-yellow">Great Impression</span>?

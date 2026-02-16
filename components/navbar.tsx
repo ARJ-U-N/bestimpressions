@@ -112,7 +112,7 @@ export function Navbar() {
                         <Link
                           href={item.href}
                           onClick={() => setSheetOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 text-white/90 text-sm font-sans font-medium hover:text-brand-yellow transition-colors"
+                          className="flex items-center gap-2 px-3 py-2 text-white/90 text-sm font-heading tracking-widest uppercase font-medium hover:text-brand-yellow transition-colors"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
                           {item.label}
@@ -122,7 +122,7 @@ export function Navbar() {
                             <Link
                               key={subindex}
                               href={subitem.href}
-                              className="block py-2 px-3 text-sm text-white/40 hover:text-white hover:bg-white/[0.03] rounded-lg font-sans font-light transition-colors"
+                              className="block py-2 px-3 text-sm text-white/40 hover:text-white hover:bg-white/[0.03] rounded-lg font-heading tracking-widest uppercase font-light transition-colors"
                               onClick={() => setSheetOpen(false)}
                             >
                               {subitem.label}
@@ -133,7 +133,7 @@ export function Navbar() {
                     ) : (
                       <Link
                         href={item.href}
-                        className="block py-2.5 px-3 text-white/80 hover:text-white hover:bg-white/[0.03] rounded-lg font-sans text-sm transition-colors"
+                        className="block py-2.5 px-3 text-white/80 hover:text-white hover:bg-white/[0.03] rounded-lg font-heading tracking-widest uppercase text-sm transition-colors"
                         onClick={() => setSheetOpen(false)}
                       >
                         {item.label}
@@ -149,7 +149,7 @@ export function Navbar() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-black text-sm font-sans font-semibold transition-all duration-300 hover:bg-[#20bd5a] group"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-black text-sm font-heading tracking-widest uppercase font-semibold transition-all duration-300 hover:bg-[#20bd5a] group"
                   onClick={() => setSheetOpen(false)}
                 >
                   <MessageCircle size={16} className="group-hover:animate-spin-once" />
@@ -205,7 +205,7 @@ export function Navbar() {
                   <DropdownMenu key={index}>
                     <DropdownMenuTrigger asChild>
                       <motion.button
-                        className="px-3 py-1.5 text-sm font-sans font-light text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/[0.05] cursor-pointer"
+                        className="px-3 py-1.5 text-sm font-heading tracking-widest uppercase text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/[0.05] cursor-pointer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -217,7 +217,7 @@ export function Navbar() {
                       <DropdownMenuItem asChild>
                         <Link
                           href={item.href}
-                          className="cursor-pointer text-brand-yellow hover:text-brand-yellow font-sans font-medium text-sm hover:bg-white/[0.05]"
+                          className="cursor-pointer text-brand-yellow hover:text-brand-yellow font-heading tracking-widest uppercase font-medium text-sm hover:bg-white/[0.05]"
                         >
                           View All {item.label} →
                         </Link>
@@ -227,7 +227,7 @@ export function Navbar() {
                         <DropdownMenuItem key={subindex} asChild>
                           <Link
                             href={subitem.href}
-                            className="cursor-pointer text-white/70 hover:text-white font-sans font-light text-sm hover:bg-white/[0.05]"
+                            className="cursor-pointer text-white/70 hover:text-white font-heading tracking-widest uppercase text-sm hover:bg-white/[0.05]"
                           >
                             {subitem.label}
                           </Link>
@@ -241,7 +241,7 @@ export function Navbar() {
                 <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Link
                     href={item.href}
-                    className="px-3 py-1.5 text-sm font-sans font-light text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/[0.05]"
+                    className="px-3 py-1.5 text-sm font-heading tracking-widest uppercase text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/[0.05]"
                   >
                     {item.label}
                   </Link>
@@ -256,7 +256,7 @@ export function Navbar() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366]/40 text-white text-xs font-sans transition-all duration-300 hover:bg-[#25D366] hover:text-black hover:border-[#25D366] group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366]/40 text-white text-xs font-heading tracking-widest uppercase transition-all duration-300 hover:bg-[#25D366] hover:text-black hover:border-[#25D366] group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
