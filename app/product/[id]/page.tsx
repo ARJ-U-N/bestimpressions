@@ -12,6 +12,7 @@ import { ProductCard } from '@/components/product-card'
 import { ArrowLeft, Check, MessageCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { ThreeDViewer } from '@/components/ThreeDViewer'
 
 export default function ProductPage() {
   const params = useParams()
@@ -84,17 +85,8 @@ export default function ProductPage() {
               transition={{ duration: 0.5 }}
               className="space-y-4"
             >
-              {/* Main Image */}
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-white/[0.03] border border-white/[0.06]">
-                <Image
-                  src={galleryImages[activeImage]}
-                  alt={product.name}
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-all duration-700"
-                />
-              </div>
+              {/* Main Image / 3D Viewer */}
+              <ThreeDViewer />
 
               {/* Thumbnails */}
               <div className="grid grid-cols-3 gap-2">
@@ -103,8 +95,8 @@ export default function ProductPage() {
                     key={i}
                     onClick={() => setActiveImage(i)}
                     className={`relative aspect-square rounded-xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeImage === i
-                        ? 'border-brand-yellow/50 shadow-lg shadow-brand-yellow/10'
-                        : 'border-white/[0.06] hover:border-white/20'
+                      ? 'border-brand-yellow/50 shadow-lg shadow-brand-yellow/10'
+                      : 'border-white/[0.06] hover:border-white/20'
                       }`}
                   >
                     <Image

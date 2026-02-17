@@ -9,6 +9,12 @@ import { MagneticButton } from '@/components/magnetic-button'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowDown, MessageCircle, Shield, Zap, Package } from 'lucide-react'
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+})
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -44,7 +50,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1
-              className="font-heading uppercase tracking-wide leading-tight text-white text-[2.5rem] md:text-[clamp(3rem,8vw,7rem)]"
+              className={`${roboto.className} uppercase tracking-tight leading-tight text-white text-[2.5rem] md:text-[clamp(3rem,8vw,7rem)]`}
             >
               <span className="block md:inline">KERALA&apos;S FASTEST PREMIUM</span>{' '}
               <span className="block md:inline"><span className="text-brand-yellow">ID CARD</span> &amp; <span className="text-brand-yellow">BRANDING</span></span>{' '}
@@ -107,79 +113,6 @@ export default function Home() {
             <div className="w-1 h-2 rounded-full bg-brand-yellow" />
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════
-          THE BEST IMPRESSIONS ADVANTAGE
-      ═══════════════════════════════════════════════ */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[1px] bg-brand-yellow" />
-              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
-                Why Us
-              </span>
-            </div>
-            <h2
-              className="font-heading text-white uppercase tracking-wide leading-tight"
-              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
-            >
-              The Best Impressions <span className="text-brand-yellow">Advantage</span>
-            </h2>
-          </motion.div>
-
-          {/* 3-Column USP Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                icon: Shield,
-                title: 'Premium Quality',
-                description: 'Accurate colors and premium finishing guaranteed.',
-              },
-              {
-                icon: Zap,
-                title: 'Fastest Turnaround',
-                description: 'We solve the biggest market issue: unreliable vendors. We deliver on time, every time.',
-              },
-              {
-                icon: Package,
-                title: 'One-Stop Partner',
-                description: 'Design → Print → Engraving → Sorting → Delivery. No coordination with multiple vendors needed.',
-              },
-            ].map((usp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-yellow/30 transition-all duration-700"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center mb-6 group-hover:bg-brand-yellow/20 transition-colors duration-500">
-                  <usp.icon size={24} className="text-brand-yellow" />
-                </div>
-                <h3 className="font-heading text-xl text-white uppercase tracking-wide mb-3">
-                  {usp.title}
-                </h3>
-                <p className="text-sm text-white/40 font-sans font-light leading-relaxed">
-                  {usp.description}
-                </p>
-
-                {/* Hover accent line */}
-                <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-brand-yellow/0 group-hover:bg-brand-yellow/40 transition-all duration-700 rounded-full" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
@@ -275,6 +208,79 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          THE BEST IMPRESSIONS ADVANTAGE
+      ═══════════════════════════════════════════════ */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-brand-yellow" />
+              <span className="text-xs uppercase tracking-[0.3em] text-brand-gray font-sans">
+                Why Us
+              </span>
+            </div>
+            <h2
+              className="font-heading text-white uppercase tracking-wide leading-tight"
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+            >
+              The Best Impressions <span className="text-brand-yellow">Advantage</span>
+            </h2>
+          </motion.div>
+
+          {/* 3-Column USP Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Shield,
+                title: 'Premium Quality',
+                description: 'Accurate colors and premium finishing guaranteed.',
+              },
+              {
+                icon: Zap,
+                title: 'Fastest Turnaround',
+                description: 'We solve the biggest market issue: unreliable vendors. We deliver on time, every time.',
+              },
+              {
+                icon: Package,
+                title: 'One-Stop Partner',
+                description: 'Design → Print → Engraving → Sorting → Delivery. No coordination with multiple vendors needed.',
+              },
+            ].map((usp, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-yellow/30 transition-all duration-700"
+              >
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center mb-6 group-hover:bg-brand-yellow/20 transition-colors duration-500">
+                  <usp.icon size={24} className="text-brand-yellow" />
+                </div>
+                <h3 className="font-heading text-xl text-white uppercase tracking-wide mb-3">
+                  {usp.title}
+                </h3>
+                <p className="text-sm text-white/40 font-sans font-light leading-relaxed">
+                  {usp.description}
+                </p>
+
+                {/* Hover accent line */}
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-brand-yellow/0 group-hover:bg-brand-yellow/40 transition-all duration-700 rounded-full" />
               </motion.div>
             ))}
           </div>
